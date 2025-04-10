@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Noun Classification Practice</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background-color: #f9f9f9;
+    }
+    h1 {
+      color: #333;
+    }
+    .section {
+      background: #fff;
+      padding: 20px;
+      margin-bottom: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    }
+    label, select, input {
+      display: block;
+      margin: 10px 0;
+    }
+    textarea {
+      width: 100%;
+      height: 100px;
+    }
+    button {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      background-color: #4CAF50;
+      color: white;
+      cursor: pointer;
+    }
+    .result {
+      background-color: #e7f4e4;
+      padding: 10px;
+      margin-top: 20px;
+      border-left: 5px solid #4CAF50;
+    }
+  </style>
+</head>
+<body>
+  <h1>Noun Classification Interactive Practice</h1>
+  <form id="quizForm">
+    <div class="section">
+      <h2>1. Categorize These Nouns</h2>
+      <label>joy:
+        <select name="joy">
+          <option>Choose category</option>
+          <option>Proper noun</option>
+          <option>Material noun</option>
+          <option>Abstract noun</option>
+          <option>Collective noun</option>
+          <option>Countable noun</option>
+        </select>
+      </label>
+      <label>Mount Tai:
+        <select name="mountTai">
+          <option>Choose category</option>
+          <option>Proper noun</option>
+          <option>Material noun</option>
+          <option>Abstract noun</option>
+          <option>Collective noun</option>
+          <option>Countable noun</option>
+        </select>
+      </label>
+      <label>water:
+        <select name="water">
+          <option>Choose category</option>
+          <option>Proper noun</option>
+          <option>Material noun</option>
+          <option>Abstract noun</option>
+          <option>Collective noun</option>
+          <option>Countable noun</option>
+        </select>
+      </label>
+    </div>
+
+    <div class="section">
+      <h2>2. Correct the Mistakes</h2>
+      <label>She has many furnitures in her room.
+        <input type="text" name="q2_1" placeholder="Correct sentence here" />
+      </label>
+      <label>I visited the Mount Fuji last year.
+        <input type="text" name="q2_2" placeholder="Correct sentence here" />
+      </label>
+    </div>
+
+    <div class="section">
+      <h2>3. Match the Noun with Its Category</h2>
+      <p>Match the noun to its type (e.g. A = Proper Noun)</p>
+      <p>A. family<br>B. dog<br>C. China<br>D. paper<br>E. love</p>
+      <label>family = <input type="text" name="match1" placeholder="A/B/C/D/E" /></label>
+      <label>dog = <input type="text" name="match2" placeholder="A/B/C/D/E" /></label>
+      <label>China = <input type="text" name="match3" placeholder="A/B/C/D/E" /></label>
+      <label>paper = <input type="text" name="match4" placeholder="A/B/C/D/E" /></label>
+      <label>love = <input type="text" name="match5" placeholder="A/B/C/D/E" /></label>
+    </div>
+
+    <div class="section">
+      <h2>4. Talk About Your Nouns</h2>
+      <p>Write one sentence for each of the following types of nouns from your life:</p>
+      <textarea name="openWriting" placeholder="Proper noun: ...\nMaterial noun: ...\nAbstract noun: ...\nCollective noun: ..."></textarea>
+    </div>
+
+    <button type="submit">Submit Answers</button>
+  </form>
+
+  <div id="result" class="result" style="display:none;"></div>
+
+  <script>
+    document.getElementById("quizForm").addEventListener("submit", function(event) {
+      event.preventDefault();
+      const form = new FormData(event.target);
+      let result = "<strong>Submission Received!</strong><br><ul>";
+      for (let [key, value] of form.entries()) {
+        result += `<li><strong>${key}:</strong> ${value}</li>`;
+      }
+      result += "</ul>Review your responses with your teacher.";
+      const resultBox = document.getElementById("result");
+      resultBox.innerHTML = result;
+      resultBox.style.display = "block";
+    });
+  </script>
+</body>
+</html>
